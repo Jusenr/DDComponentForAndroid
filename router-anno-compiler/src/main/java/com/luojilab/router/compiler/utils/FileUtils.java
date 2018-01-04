@@ -36,11 +36,15 @@ public class FileUtils {
      * @param fileName
      * @param content
      */
-    public static void writeStringToFile(String fileName, String content, boolean append) {
+    public static void writeStringToFile(String fileName, String encoding, String content, boolean append) {
         BufferedWriter out = null;
         try {
+            if (encoding == null || encoding.length() == 0) {
+                encoding = "UTF-8";
+            }
             out = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(fileName, append)));
+                    new FileOutputStream(fileName, append), encoding));
+
             out.write(content);
         } catch (Exception e) {
             e.printStackTrace();

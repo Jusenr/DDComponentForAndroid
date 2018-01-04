@@ -143,7 +143,7 @@ public class RouterProcessor extends AbstractProcessor {
                 }
                 stringBuilder.append("\n");
             }
-            FileUtils.writeStringToFile(fileName, stringBuilder.toString(), false);
+            FileUtils.writeStringToFile(fileName, "utf-8", stringBuilder.toString(), false);
         }
     }
 

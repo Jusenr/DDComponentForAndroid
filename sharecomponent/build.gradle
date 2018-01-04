@@ -28,13 +28,21 @@ android {
         }
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
     resourcePrefix "share_"
 
 }
 
 dependencies {
     compile project(':componentservice')
-    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
+    annotationProcessor project(':router-anno-compiler')
+//    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
