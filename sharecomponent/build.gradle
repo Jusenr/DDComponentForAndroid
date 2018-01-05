@@ -52,6 +52,7 @@ android {
         abortOnError false
     }
     dexOptions {
+        preDexLibraries = false
         javaMaxHeapSize "4g"
     }
 
@@ -63,7 +64,7 @@ dependencies {
     compile project(':componentservice')
     annotationProcessor project(':router-anno-compiler')
 //    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
-//    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 
 combuild {

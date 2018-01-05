@@ -30,3 +30,16 @@ allprojects {
         }
     }
 }
+
+subprojects {
+    configurations.all {
+        resolutionStrategy {
+            force 'com.android.support:support-v4:26.+'
+            force 'com.android.support:appcompat-v7:26.+'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
