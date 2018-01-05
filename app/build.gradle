@@ -18,6 +18,21 @@ android {
         }
 
     }
+    signingConfigs {
+        release {
+            storeFile file(SIGN_FILEPATH)
+            storePassword SIGN_STOREPASSWORD
+            keyAlias SIGN_KEYALIAS
+            keyPassword SIGN_KEYPASSWORD
+        }
+        debug {
+            storeFile file("com.putao.sign.jks")
+            storePassword "123456"
+            keyAlias "com.putao"
+            keyPassword "putao123"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -25,8 +40,8 @@ android {
         }
 
         debug {
-            signingConfig signingConfigs.debug
             minifyEnabled false
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
