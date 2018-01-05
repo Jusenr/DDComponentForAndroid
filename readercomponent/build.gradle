@@ -2,10 +2,11 @@ apply plugin: 'com.dd.comgradle'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
+
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 14
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -18,26 +19,41 @@ android {
         }
 
     }
-
+    signingConfigs {
+        release {
+            storeFile file(SIGN_FILEPATH)
+            storePassword SIGN_STOREPASSWORD
+            keyAlias SIGN_KEYALIAS
+            keyPassword SIGN_KEYPASSWORD
+        }
+        debug {
+            storeFile file("$rootDir/com.putao.sign.jks")
+            storePassword "123456"
+            keyAlias "com.putao"
+            keyPassword "putao123"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
     }
-
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
     }
-
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
 
     resourcePrefix "readerbook_"
 
@@ -46,14 +62,11 @@ android {
 dependencies {
     compile project(':componentservice')
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
+    annotationProcessor project(':router-anno-compiler')
+//    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
 }
 
 combuild {
     applicationName = 'com.luojilab.reader.runalone.application.ReaderApplication'
-    isRegisterCompoAuto = false
+    isRegisterCompoAuto = true
 }

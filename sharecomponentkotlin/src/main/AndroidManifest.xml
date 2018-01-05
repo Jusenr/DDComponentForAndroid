@@ -4,13 +4,13 @@
 
     <application
         android:allowBackup="true"
-        android:label="sharekotlin"
+        android:label="@string/kotlin_app_name"
         android:supportsRtl="true"
         tools:replace="android:label">
 
 
         <activity
-            android:name=".ShareMessageActivity"/>
+            android:name="com.luojilab.share.kotlin.ShareMessageActivity"/>
 
     </application>
 

@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-
-    package="com.luojilab.share">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.luojilab.share">
 
     <application
         android:name=".runalone.application.ShareApplication"
@@ -10,11 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/commonAppTheme"
         tools:replace="android:label">
-        <activity android:name="com.luojilab.share.ShareActivity">
+        <activity android:name=".ShareActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 

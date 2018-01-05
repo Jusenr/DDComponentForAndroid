@@ -2,11 +2,11 @@ apply plugin: 'com.dd.comgradle'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.luojilab.androidcomponent"
         minSdkVersion 15
-        targetSdkVersion 14
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -26,7 +26,7 @@ android {
             keyPassword SIGN_KEYPASSWORD
         }
         debug {
-            storeFile file("com.putao.sign.jks")
+            storeFile file("$rootDir/com.putao.sign.jks")
             storePassword "123456"
             keyAlias "com.putao"
             keyPassword "putao123"
@@ -53,7 +53,9 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
-
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
 }
 
 dependencies {
