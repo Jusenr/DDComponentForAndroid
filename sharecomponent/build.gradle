@@ -1,7 +1,4 @@
 apply plugin: 'com.dd.comgradle'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
@@ -66,11 +63,10 @@ dependencies {
     compile project(':componentservice')
     annotationProcessor project(':router-anno-compiler')
 //    annotationProcessor 'com.luojilab.ddcomponent:router-anno-compiler:1.0.0'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+//    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 
 combuild {
     applicationName = 'com.luojilab.share.runalone.application.ShareApplication'
     isRegisterCompoAuto = true
 }
-

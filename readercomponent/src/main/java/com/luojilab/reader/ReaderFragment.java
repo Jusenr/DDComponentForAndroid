@@ -3,6 +3,7 @@ package com.luojilab.reader;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +66,7 @@ public class ReaderFragment extends Fragment {
         bundle.putString("bookName", "Gone with the Wind");
         bundle.putString("author", JsonService.Factory.getInstance().create().toJsonString(author));
         UIRouter.getInstance().openUri(getActivity(), "DDComp://share/shareBook", bundle);
+        Log.i("ReaderFragment", "goToShareActivityWithBundle: shareBook");
     }
 
     // UI transfer with URI
@@ -75,6 +77,7 @@ public class ReaderFragment extends Fragment {
         UIRouter.getInstance().openUri(getActivity(),
                 "DDComp://kotlin/shareMagazine?bookName=NYTIME&author="
                         + JsonService.Factory.getInstance().create().toJsonString(author), null);
+        Log.i("ReaderFragment", "goToShareActivityWithBundle: shareMagazine");
     }
 
     //startActivityForResult
@@ -85,6 +88,7 @@ public class ReaderFragment extends Fragment {
         UIRouter.getInstance().openUri(getActivity(),
                 "DDComp://share/shareBook?bookName=Gone with the Wind&author="
                         + JsonService.Factory.getInstance().create().toJsonString(author), null, REQUEST_CODE);
+        Log.i("ReaderFragment", "goToShareActivityWithBundle: shareBook");
     }
 
 }

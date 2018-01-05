@@ -22,31 +22,31 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-    signingConfigs {
-        release {
-            storeFile file(SIGN_FILEPATH)
-            storePassword SIGN_STOREPASSWORD
-            keyAlias SIGN_KEYALIAS
-            keyPassword SIGN_KEYPASSWORD
-        }
-        debug {
-            storeFile file("$rootDir/com.putao.sign.jks")
-            storePassword "123456"
-            keyAlias "com.putao"
-            keyPassword "putao123"
-        }
-    }
+//    signingConfigs {
+//        release {
+//            storeFile file(SIGN_FILEPATH)
+//            storePassword SIGN_STOREPASSWORD
+//            keyAlias SIGN_KEYALIAS
+//            keyPassword SIGN_KEYPASSWORD
+//        }
+//        debug {
+//            storeFile file("$rootDir/com.putao.sign.jks")
+//            storePassword "123456"
+//            keyAlias "com.putao"
+//            keyPassword "putao123"
+//        }
+//    }
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            minifyEnabled false
-            signingConfig signingConfigs.debug
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+//        debug {
+//            minifyEnabled false
+////            signingConfig signingConfigs.debug
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
     }
 
     lintOptions {
