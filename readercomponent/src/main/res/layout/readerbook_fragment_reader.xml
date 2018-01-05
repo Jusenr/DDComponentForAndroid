@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/common_color_C2C2C2">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/readerbook_app_name"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="欢迎每天听本书,点击下面按钮分享"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/tv_1"
@@ -21,7 +32,7 @@
         android:layout_marginTop="20dp"
         android:text="Bundle方式跳转"
         android:textAllCaps="false"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/tv_2"
@@ -32,7 +43,7 @@
         android:layout_marginTop="10dp"
         android:text="Uri方式跳转"
         android:textAllCaps="false"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/tv_3"
@@ -43,6 +54,6 @@
         android:layout_marginTop="10dp"
         android:text="startActivityForResult"
         android:textAllCaps="false"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
 </RelativeLayout>

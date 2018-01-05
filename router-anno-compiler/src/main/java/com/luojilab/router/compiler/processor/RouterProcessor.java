@@ -21,6 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -127,26 +128,40 @@ public class RouterProcessor extends AbstractProcessor {
     private void generateRouterTable() {
         String fileName = RouteUtils.genRouterTable(host);
         if (FileUtils.createFile(fileName)) {
-
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("auto generated, do not change !!!! \n\n");
-            stringBuilder.append("HOST : " + host + "\n\n");
+            stringBuilder.append("HOST : ");
+            stringBuilder.append(host);
+            stringBuilder.append("\n\n");
 
             for (Node node : routerNodes) {
-                stringBuilder.append(node.getDesc() + "\n");
-                stringBuilder.append(node.getPath() + "\n");
+                stringBuilder.append("desc : ");
+                stringBuilder.append(node.getDesc());
+                stringBuilder.append("\npath : ");
+                stringBuilder.append(node.getPath());
+                stringBuilder.append("\n");
                 Map<String, String> paramsType = node.getParamsDesc();
                 if (MapUtils.isNotEmpty(paramsType)) {
+                    stringBuilder.append("params desc : \n");
+                    stringBuilder.append("    {\n");
                     for (Map.Entry<String, String> types : paramsType.entrySet()) {
-                        stringBuilder.append(types.getKey() + ":" + types.getValue() + "\n");
+                        stringBuilder.append("      ");
+                        stringBuilder.append(types.getKey());
+                        stringBuilder.append(":");
+                        stringBuilder.append(types.getValue());
+                        stringBuilder.append("\n");
                     }
+                    stringBuilder.append("    }");
                 }
-                stringBuilder.append("\n");
+                stringBuilder.append("\n\n");
+                stringBuilder.append("---------------------------------------------------------\n");
+                stringBuilder.append("Last edited:");
+                stringBuilder.append(new Date(System.currentTimeMillis()));
             }
-            FileUtils.writeStringToFile(fileName, "utf-8", stringBuilder.toString(), false);
+
+            FileUtils.writeStringToFile(fileName, null, stringBuilder.toString(), false);
         }
     }
-
 
     /**
      * generate HostUIRouter.java

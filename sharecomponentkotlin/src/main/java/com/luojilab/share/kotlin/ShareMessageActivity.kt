@@ -1,7 +1,7 @@
 package com.luojilab.share.kotlin
 
-import android.app.Activity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.luojilab.component.componentlib.service.AutowiredService
 import com.luojilab.componentservice.share.bean.Author
@@ -12,7 +12,7 @@ import com.luojilab.router.facade.annotation.RouteNode
  * Created by mrzhang on 2017/12/29.
  */
 @RouteNode(path = "/shareMagazine", desc = "分享杂志页面")
-class ShareMessageActivity : Activity() {
+class ShareMessageActivity : AppCompatActivity() {
 
     @Autowired(name = "bookName")
     @JvmField
@@ -22,26 +22,26 @@ class ShareMessageActivity : Activity() {
     @JvmField
     var author: Author? = null
 
-    var tvShareTitle: TextView? = null
-    var tvShareBook: TextView? = null
-    var tvAuthor: TextView? = null
-    var tvCounty: TextView? = null
+    private var tvShareTitle: TextView? = null
+    private var tvShareBook: TextView? = null
+    private var tvAuthor: TextView? = null
+    private var tvCounty: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AutowiredService.Factory.getInstance().create().autowire(this)
         setContentView(R.layout.kotlin_activity_share)
 
-        tvShareTitle = findViewById<TextView>(R.id.share_title)
-        tvShareBook = findViewById<TextView>(R.id.share_tv_tag)
-        tvAuthor = findViewById<TextView>(R.id.share_tv_author)
-        tvCounty = findViewById<TextView>(R.id.share_tv_county)
+        tvShareTitle = findViewById(R.id.share_title) as TextView?
+        tvShareBook = findViewById(R.id.share_tv_tag) as TextView?
+        tvAuthor = findViewById(R.id.share_tv_author) as TextView?
+        tvCounty = findViewById(R.id.share_tv_county) as TextView?
 
 
         tvShareTitle?.text = "Magazine"
-        tvShareBook?.setText(magazineName)
-        tvAuthor?.setText(author?.name ?: "zmq")
-        tvCounty!!.setText(author?.county ?: "China")
+        tvShareBook?.text = magazineName
+        tvAuthor?.text = author?.name ?: "zmq"
+        tvCounty!!.text = author?.county ?: "China"
 
     }
 

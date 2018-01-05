@@ -2,8 +2,13 @@ auto generated, do not change !!!!
 
 HOST : share
 
-分享书籍页面
-/shareBook
-author:com.luojilab.componentservice.share.bean.Author
-bookName:String
+desc : 分享书籍页面
+path : /shareBook
+params desc : 
+    {
+      author:com.luojilab.componentservice.share.bean.Author
+      bookName:String
+    }
 
+---------------------------------------------------------
+Last edited:Fri Jan 05 11:47:47 CST 2018

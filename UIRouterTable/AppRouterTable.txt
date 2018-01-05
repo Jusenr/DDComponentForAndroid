@@ -2,6 +2,9 @@ auto generated, do not change !!!!
 
 HOST : app
 
-首页
-/main
+desc : 首页
+path : /main
 
+
+---------------------------------------------------------
+Last edited:Fri Jan 05 11:50:26 CST 2018
